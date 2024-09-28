@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style> h1 {text-align: center;}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedPath</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <button class="toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+            <h1>MedPath</h1>
+
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <img src="logo.png" alt="MedPath Logo">
+        <a href="#patient-info" onclick="showSection('patient-info')">Patient Info</a>
+        <a href="#medication" onclick="showSection('medication')">Medication</a>
+        <a href="#history" onclick="showSection('history')">History</a>
+        <a href="#about-us" onclick="showSection('about-us')">About Us</a>
+        <a href="#privacy-policy" onclick="showSection('privacy-policy')">Privacy Policy</a>
+
+
+    </div>
+
+    <div class="background-shape"></div>
+    <div class="background-shape2"></div>
+
+    <div class="content">
+        <!-- Patient Information Section -->
+        <div id="patient-info" class="section active">
+            <h2>Patient Information</h2>
+            <form id="patient-form">
+                <input type="text" id="patient-name" placeholder="Patient Name" required>
+                <input type="text" id="patient-phone" placeholder="Phone Number" pattern="\d{10}" required>
+                <textarea id="patient-medications" placeholder="Medications (comma separated)" required></textarea>
+                <button type="button" onclick="addPatient()">Add Patient</button>
+            </form>
+            <div id="patient-list"></div>
+        </div>
+
+logo
+        <div id="medication" class="section">
+            <h2>Medication Schedule</h2>
+            <form id="medication-form">
+                <select id="patient-list-medication" onchange="populateMedications()">
+                    <option value="">Select patient</option>
+                </select>
+                <select id="medication-name"></select>
+                <input type="number" id="dosage-frequency" min="1" max="4" placeholder="Frequency (1-4)" required>
+                <button type="button" onclick="addMedicineSchedule()">Add Schedule</button>
+            </form>
+            <button onclick="recordMedicationIntake()">Record Intake</button>
+            <div id="notification"></div>
+            <div id="warning"></div>
+        </div>
+
+
+        <div id="history" class="section">
+            <h2>History</h2>
+            <table id="history-list">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Medication</th>
+                        <th>Time Slot</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="about-us" class="section dark-section">
+            <h2>About Us</h2>
+            <p>MedPath is dedicated to ensuring accurate medication scheduling and record-keeping for patients. Our
+                mission is to streamline medical routines through innovative technology.</p>
+        </div>
+
+        <div id="privacy-policy" class="section dark-section">
+            <h2>Privacy Policy</h2>
+            <p>Your privacy is important to us. MedPath ensures that all data collected is securely stored and is only
+                used for medication management purposes. We adhere strictly to data protection regulations.</p>
+        </div>
+    </div>
+
+    <footer>
+        © 2024 MedPath. All Rights Reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
